@@ -88,7 +88,7 @@ public class ExceptionsDemo {
      * extends from Exception which is capable of catching any exception.
      * 
      * 9. When the NegativeNumberException is caught, use the caught exception
-     * to call your scaryPopup method.
+     * to call your scaryPopup method. 
      * 
      * 10. Try running the program. Did it show a pop-up?
      */

@@ -108,7 +108,7 @@ class GottaCatchemAll {
 
             Random rand = new Random();
             int dividend = rand.nextInt(9900) + 100;
-            int divisor = 0;
+            int divisor =  0;
             int quotient = dividend / divisor;
 
             System.out.println("The result of " + dividend + " divided by "

@@ -27,7 +27,7 @@ public abstract class AbstractClassDemo {
      * body defined in curly brackets.
      * 
      * Any class that extends the abstract class will be required to implement
-     * its abstract methods with the same method header minus the abstract
+     * its abst ract methods with the same method header minus the abstract
      * keyword.
      */
     public abstract void abstractDemo();

@@ -19,7 +19,7 @@ public class NegativeNumberException extends Exception{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			scaryPopup();
-		}
+		} 
 		finally {
 			JOptionPane.showMessageDialog(null, "Your computer will be okay!");
 		}
