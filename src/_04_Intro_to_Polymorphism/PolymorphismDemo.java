@@ -15,9 +15,12 @@ abstract class Animal {
 }
 
 class Dog extends Animal {
-    public void speak() {
-        System.out.println("Woof!");
-    }
+  //  public void speak() {
+   //     System.out.println("Woof!");
+   // }
+	public void eat() {
+		System.out.println("Eating chicken!");
+	}
 }
 
 class Bird extends Animal {
@@ -46,7 +49,8 @@ public class PolymorphismDemo {
          * declared as an Animal on the left side.
          */
 
-        Animal animal = new Animal();
+        Animal animal = new Dog();
+        animal.speak();
 
         /*
          * 2. Call the speak method and run the program.

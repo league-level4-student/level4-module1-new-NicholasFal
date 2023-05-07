@@ -44,6 +44,7 @@ public class TextFunkifierTest {
 
     @Test
     public void testCustomString() {
-
+    	MoreTextStuff mccs = new MoreTextStuff("This is another test");
+    	assertEquals("THIS IS ANOTHER TEST", mccs.funkifyText());
     }
 }
