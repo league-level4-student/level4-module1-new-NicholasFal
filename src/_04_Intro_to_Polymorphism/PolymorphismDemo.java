@@ -12,6 +12,11 @@ abstract class Animal {
     public void speak() {
         System.out.println("I am an animal");
     }
+
+	public void eat() {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 class Dog extends Animal {
@@ -51,6 +56,7 @@ public class PolymorphismDemo {
 
         Animal animal = new Dog();
         animal.speak();
+        animal.eat();
 
         /*
          * 2. Call the speak method and run the program.
@@ -58,7 +64,7 @@ public class PolymorphismDemo {
          * Even though the variable was declared as an Animal, at run time it
          * will behave like whatever Animal subclass it was instantiated as.
          */
-
+        
         /*
          * 3. Comment out the speak method of the Animal subclass you chose and
          * run the program again.

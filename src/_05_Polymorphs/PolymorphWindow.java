@@ -5,7 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -61,20 +61,34 @@ public class PolymorphWindow extends JPanel implements ActionListener {
     private Timer timer;
 
     Polymorph bluePoly;
-
+    PolyMoving movingPoly;
+    PolyRed redPoly;
+    Graphics g;
+    ArrayList<Polymorph> polyArray = new ArrayList<Polymorph>();
+   
     public static void main(String[] args) {
         new PolymorphWindow().buildWindow();
+        
     }
 
     public void buildWindow() {
-        window = new JFrame("IT'S MORPHIN' TIME!");
+        
+    	window = new JFrame("IT'S MORPHIN' TIME!");
         window.add(this);
         window.getContentPane().setPreferredSize(new Dimension(500, 500));
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.pack();
         window.setVisible(true);
 
-        bluePoly = new BluePolymorph(50, 50);
+        bluePoly = new BluePolymorph(50, 50, 50, 50);
+        movingPoly = new PolyMoving(50, 50, 50, 50);
+        polyArray.add(bluePoly);
+        polyArray.add(movingPoly);
+        polyArray.add(redPoly);
+        for(int i = 0; i < polyArray.size(); i++) {
+        polyArray.get(i).draw(g);
+        polyArray.get(i).update();
+        }
 
         timer = new Timer(1000 / 30, this);
         timer.start();
@@ -94,5 +108,18 @@ public class PolymorphWindow extends JPanel implements ActionListener {
         repaint();
         bluePoly.update();
 
+    }
+    
+}
+class PolyRed extends Polymorph {
+	public PolyRed(int x, int y, int width, int height){
+	   	super(x, y, width, height);
+	    }
+	public void update() {
+		
+	}
+    public void draw(Graphics g) {
+    	g.setColor(Color.red);
+		g.fillRect(getX(), getY(), getWidth(), getHeight());
     }
 }
