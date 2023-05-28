@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -63,6 +65,7 @@ public class PolymorphWindow extends JPanel implements ActionListener {
     Polymorph bluePoly;
     PolyMoving movingPoly;
     PolyRed redPoly;
+    PolyMouse mousePoly;
     Graphics g;
     ArrayList<Polymorph> polyArray = new ArrayList<Polymorph>();
    
@@ -82,6 +85,7 @@ public class PolymorphWindow extends JPanel implements ActionListener {
 
         bluePoly = new BluePolymorph(50, 50, 50, 50);
         movingPoly = new PolyMoving(50, 50, 50, 50);
+        mousePoly = new PolyMouse(50, 50, 50, 50);
         polyArray.add(bluePoly);
         polyArray.add(movingPoly);
         polyArray.add(redPoly);
@@ -122,4 +126,51 @@ class PolyRed extends Polymorph {
     	g.setColor(Color.red);
 		g.fillRect(getX(), getY(), getWidth(), getHeight());
     }
+}
+class PolyMouse extends Polymorph implements MouseMotionListener{
+	private int x;
+	private int y;
+	private int width;
+	private int height;
+	
+	private int mouseX;
+	private int mouseY;
+	
+	public PolyMouse(int x, int y, int width, int height) {
+		super(x, y, width, height);
+		// TODO Auto-generated constructor stub
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		x = mouseX;
+		y = mouseY;
+		
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		// TODO Auto-generated method stub
+		g.setColor(Color.green);
+		g.fillRect(x, y, width, height);
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		mouseX = arg0.getX();
+		mouseY = arg0.getY();
+	}
+	
 }
