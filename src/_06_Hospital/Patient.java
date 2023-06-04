@@ -1,10 +1,11 @@
 package _06_Hospital;
 
 public class Patient {
-	public void feelsCaredFor() {
-		
+	Boolean feelsCaredFor = false;
+	public boolean feelsCaredFor() {
+		return feelsCaredFor;
 	}
 	public void checkPulse() {
-		
+		feelsCaredFor = true;
 	}
 }

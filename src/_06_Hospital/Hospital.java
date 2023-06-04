@@ -12,14 +12,28 @@ public class Hospital {
 	public void addPatient(Patient patient) {
 		unassignedPatients.add(patient);
 	}
-	public void patientToDoctor() throws Exception {
-		try {
-		for(int i = 0; i < 3; i++) {
-		doctors.get(i).assignPatient(unassignedPatients.get(i));
-		unassignedPatients.remove(i);
+	public void assignPatientsToDoctors() throws Exception {
+		boolean overThree = false;
+		int index = 0;
+		for(int i = 0; i < doctors.size(); i++) {
+			if(overThree == true) {
+				i--;
+				overThree = false;
+			}
+			try {
+				doctors.get(i).assignPatient(unassignedPatients.get(index));
+			} catch (DoctorFullException dfe) {
+				overThree = false;
+			}
+			index++;
+			overThree = true;
 		}
-		} catch (DoctorFullException e){
-			e.printStackTrace();
-		}
+	}
+	public ArrayList getDoctors() {
+		return doctors;
+		
+	}
+	public ArrayList getPatients() {
+		return unassignedPatients;
 	}
 }
